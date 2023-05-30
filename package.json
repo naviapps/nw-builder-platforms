@@ -13,40 +13,33 @@
     "email": "haruki.fukui@naviapps.com"
   },
   "license": "MIT",
-  "exports": {
-    "default": "./src/nwbuilds.js"
-  },
+  "main": "./lib/index.cjs",
   "type": "module",
-  "files": [
-    "./src",
-    "./LICENSE"
-  ],
   "homepage": "https://github.com/naviapps/nw-builder-platforms",
   "repository": {
     "type": "git",
     "url": "https://github.com/naviapps/nw-builder-platforms.git"
   },
   "scripts": {
-    "fmt": "prettier --write \"./src/**/*.{css,html,js,json,md,yml}\"",
-    "lnt": "eslint --fix ./src",
-    "test:manual:dev": "cd test/fixture && nwbuilds --mode=run ./app --no-glob",
-    "test:manual:bld": "cd test/fixture && nwbuilds --mode=build ./app --no-glob"
+    "format": "prettier --write ./bin ./lib ./src",
+    "lint": "eslint ./bin/**.cjs ./lib/**.cjs ./src/**.js",
+    "build": "esbuild src/index.js --bundle --minify --platform=node --outfile=./dist/index.cjs"
   },
   "devDependencies": {
+    "esbuild": "^0.17.19",
     "eslint": "^8.41.0",
     "eslint-config-tjw-jsdoc": "^1.0.3",
-    "eslint-plugin-jsdoc": "^41.1.2",
+    "eslint-plugin-jsdoc": "41.1.2",
     "prettier": "^2.8.8"
   },
   "dependencies": {
     "lodash": "^4.17.21",
     "nw-builder": "^4.2.3",
     "simple-glob": "^0.2.0",
-    "winston": "^3.9.0",
     "yargs": "^17.7.2"
   },
   "bin": {
-    "nwbuilds": "./src/cli.js"
+    "nwbuilds": "./bin/nwbuilds.cjs"
   },
   "prettier": {
     "printWidth": 80,

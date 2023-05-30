@@ -1,6 +1,7 @@
 {
   "name": "app",
   "main": "index.html",
+  "private": true,
   "nwbuilds": {
     "srcDir": "./app",
     "version": "0.75.0",

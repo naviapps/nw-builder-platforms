@@ -8,7 +8,7 @@ import detectCurrentPlatform from "./util/detectCurrentPlatform.js";
 import parseOptions from "./util/parseOptions.js";
 
 // eslint-disable-next-line jsdoc/require-jsdoc
-class NwBuilder {
+export class NwBuilder {
   /**
    * @typedef {object} App
    * @property {string}   name                  Name of the application

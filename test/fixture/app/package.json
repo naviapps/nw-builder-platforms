@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "main": "index.html",
+  "nwbuilds": {
+    "srcDir": "./app",
+    "version": "0.75.0",
+    "platforms": [
+      "osxarm",
+      "osx64"
+    ],
+    "app": {
+      "name": "app"
+    },
+    "glob": false
+  }
+}

@@ -1,0 +1,12 @@
+# computer files
+.DS_Store
+
+# runtime files
+node_modules
+coverage
+
+# project files
+cache
+dist
+out
+tmp

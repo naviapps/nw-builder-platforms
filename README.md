@@ -1,14 +1,15 @@
 # nw-builder-platforms
 
-Build [NW.js](https://github.com/nwjs/nw.js) applications for Mac, Windows and Linux.
-
 Added multi-platform builds to [nw-builder](https://github.com/nwutils/nw-builder).
+
+Build [NW.js](https://github.com/nwjs/nw.js) applications for Mac, Windows and Linux.
 
 ## Table of Contents
 
 - [Installation](https://github.com/naviapps/nw-builder-platforms#installation)
 - [Usage](https://github.com/naviapps/nw-builder-platforms#usage)
 - [API Reference](https://github.com/naviapps/nw-builder-platforms#api-reference)
+- [License](https://github.com/naviapps/nw-builder-platforms#license)
 
 ## Installation
 
@@ -57,3 +58,7 @@ Not supported.
 #### options.arch
 
 Not supported.
+
+## License
+
+[MIT](https://github.com/naviapps/nw-builder-platforms/blob/master/.github/LICENSE)

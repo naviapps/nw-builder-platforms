@@ -129,9 +129,10 @@ export class NwBuilder {
   migrate(name, platform) {
     const options = _.cloneDeep(this.options);
 
-    options.outDir = _.trimEnd(options.outDir, "/") + "/" + name;
     options.platform = platform.platform;
     options.arch = platform.arch;
+    options.outDir = _.trimEnd(options.outDir, "/") + "/" + name;
+    options.cacheDir = _.trimEnd(options.cacheDir, "/") + "/" + name;
     if (platform.downloadUrl !== null) {
       options.downloadUrl = platform.downloadUrl;
     }

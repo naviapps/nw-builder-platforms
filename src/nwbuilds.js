@@ -5,7 +5,6 @@ import Options from "./constants/Options.js";
 import Platforms from "./constants/Platforms.js";
 import checkPkgOptions from "./util/checkPkgOptions.js";
 import detectCurrentPlatform from "./util/detectCurrentPlatform.js";
-import parseOptions from "./util/parseOptions.js";
 
 /**
  * @typedef {object} Options Configuration options
@@ -28,19 +27,19 @@ import parseOptions from "./util/parseOptions.js";
  */
 
 // eslint-disable-next-line jsdoc/require-jsdoc
-class NwBuilder {
+export class NwBuilder {
   // eslint-disable-next-line jsdoc/require-jsdoc
   constructor(options) {
+    this.options = Options;
     const files = options.glob
       ? options.srcDir
       : _.trimEnd(options.srcDir, "/") + "/**/*";
     const pkgOptions = checkPkgOptions(files);
     // Options are defined in package.json take precedence
     if (Object.entries(pkgOptions).length !== 0) {
-      this.options = parseOptions(pkgOptions, Options);
-    } else {
-      this.options = parseOptions(options, Options);
+      Object.assign(this.options, pkgOptions);
     }
+    Object.assign(this.options, options);
 
     if (this.options.currentPlatform === null) {
       this.options.currentPlatform = detectCurrentPlatform(process);
@@ -103,17 +102,12 @@ class NwBuilder {
       });
 
     this._platforms = _.cloneDeep(Platforms);
-
-    // clear all unused platforms
-    for (const name in this._platforms) {
-      if (this.options.platforms && this.options.platforms.indexOf(name) === -1)
-        delete this._platforms[name];
-    }
   }
 
   // eslint-disable-next-line jsdoc/require-jsdoc
   async build() {
-    for (const [name, platform] of Object.entries(this._platforms)) {
+    for (const name of this.options.platforms) {
+      const platform = this._platforms[name];
       const options = this.migrate(name, platform);
       options.mode = "build";
 

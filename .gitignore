@@ -1,5 +1,6 @@
 # computer files
 .DS_Store
+.idea
 
 # runtime files
 node_modules
@@ -7,6 +8,5 @@ coverage
 
 # project files
 cache
-dist
 out
 tmp

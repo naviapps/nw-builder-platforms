@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const yargs = require("yargs/yargs");
-const { hideBin } = require("yargs/helpers");
+import yargs from "yargs/yargs";
+import { hideBin } from "yargs/helpers";
 
-const { nwbuilds } = require("../lib/index.cjs");
-const { detectCurrentPlatform } = require("../dist/index.cjs");
+import detectCurrentPlatform from "./util/detectCurrentPlatform.js";
+import nwbuilds from "../index.js";
 
 const cli = yargs(hideBin(process.argv))
   .version(false)

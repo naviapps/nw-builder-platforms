@@ -1,6 +1,6 @@
-/* eslint-disable jsdoc/require-description,jsdoc/no-undefined-types,jsdoc/require-param-description */
 import Platform from "../constants/Platform.js";
 
+/* eslint-disable jsdoc/require-description,jsdoc/no-undefined-types,jsdoc/require-param-description */
 /**
  * @param  {NodeJS.Process}     process
  * @return {Platform|undefined}
@@ -12,10 +12,13 @@ const detectCurrentPlatform = (process) => {
         case "x64":
           return Platform.OSX_64;
 
+        case "x32":
+          return Platform.OSX_32;
+
         case "arm64":
           return Platform.OSX_ARM;
         default:
-          return Platform.OSX_32;
+          return undefined;
       }
 
     case "win32":
@@ -29,5 +32,6 @@ const detectCurrentPlatform = (process) => {
       return undefined;
   }
 };
+/* eslint-enable */
 
 export default detectCurrentPlatform;

@@ -1,9 +1,9 @@
-/* eslint-disable jsdoc/require-jsdoc */
 import fs from "fs";
 import path from "path";
 
 import Glob from "simple-glob";
 
+// eslint-disable-next-line jsdoc/require-jsdoc
 const checkPkgOptions = (files) => {
   let pkg = {};
 

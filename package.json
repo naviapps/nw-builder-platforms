@@ -13,20 +13,29 @@
     "email": "haruki.fukui@naviapps.com"
   },
   "license": "MIT",
-  "main": "./lib/index.cjs",
+  "exports": {
+    "default": "./index.js",
+    "types": "./index.d.ts"
+  },
   "type": "module",
+  "files": [
+    "./index.js",
+    "./src",
+    "./LICENSE"
+  ],
   "homepage": "https://github.com/naviapps/nw-builder-platforms",
   "repository": {
     "type": "git",
     "url": "https://github.com/naviapps/nw-builder-platforms.git"
   },
   "scripts": {
-    "format": "prettier --write ./bin ./lib ./src",
-    "lint": "eslint ./bin/**.cjs ./lib/**.cjs ./src/**.js",
-    "build": "esbuild src/index.js --bundle --minify --platform=node --outfile=./dist/index.cjs"
+    "fmt": "prettier --write \"./**/*.{css,html,js,json,md,yml}\"",
+    "lnt": "eslint --fix ./src",
+    "test:manual:get": "cd test/fixture && nwbuilds --mode=get --version=0.75.0",
+    "test:manual:dev": "cd test/fixture && nwbuilds --mode=run --version=0.75.0 ./app --no-glob",
+    "test:manual:bld": "cd test/fixture && nwbuilds --mode=build --version=0.75.0 ./app --no-glob"
   },
   "devDependencies": {
-    "esbuild": "^0.17.19",
     "eslint": "^8.41.0",
     "eslint-config-tjw-jsdoc": "^1.0.3",
     "eslint-plugin-jsdoc": "41.1.2",
@@ -39,7 +48,7 @@
     "yargs": "^17.7.2"
   },
   "bin": {
-    "nwbuilds": "./bin/nwbuilds.cjs"
+    "nwbuilds": "./src/cli.js"
   },
   "prettier": {
     "printWidth": 80,
@@ -64,7 +73,8 @@
     },
     "env": {
       "es6": true,
-      "node": true
+      "node": true,
+      "jest": true
     },
     "extends": [
       "eslint:recommended",

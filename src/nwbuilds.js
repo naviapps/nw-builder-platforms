@@ -1,11 +1,11 @@
 import _ from "lodash";
 import nwbuild from "nw-builder";
 
-import Options from "./src/constants/Options.js";
-import Platforms from "./src/constants/Platforms.js";
-import checkPkgOptions from "./src/util/checkPkgOptions.js";
-import detectCurrentPlatform from "./src/util/detectCurrentPlatform.js";
-import parseOptions from "./src/util/parseOptions.js";
+import Options from "./constants/Options.js";
+import Platforms from "./constants/Platforms.js";
+import checkPkgOptions from "./util/checkPkgOptions.js";
+import detectCurrentPlatform from "./util/detectCurrentPlatform.js";
+import parseOptions from "./util/parseOptions.js";
 
 /**
  * @typedef {object} Options Configuration options
@@ -20,14 +20,16 @@ import parseOptions from "./src/util/parseOptions.js";
  * @property {"https://dl.nwjs.io" | string}       [downloadUrl="https://dl.nwjs.io"]        URI to download NW binaries from
  * @property {"https://nwjs.io/versions" | string} [manifestUrl="https://nwjs.io/versions"]  URI to download manifest from
  * @property {object}                              app                                       Refer to Linux/Windows Specific Options under Getting Started in the docs
- * @property {boolean}                             [cache=true]                              If true the existing cache is used. Otherwise it removes and redownloads it.
+ * @property {boolean}                             [cache=true]                              If true the existing cache is used. Otherwise, it removes and re downloads it.
  * @property {boolean}                             [zip=false]                               If true the outDir directory is zipped
  * @property {boolean}                             [cli=false]                               If true the CLI is used to glob srcDir and parse other options
  * @property {boolean}                             [ffmpeg=false]                            If true the chromium ffmpeg is replaced by community version
  * @property {boolean}                             [glob=true]                               If true globbing is enabled
  */
 
+// eslint-disable-next-line jsdoc/require-jsdoc
 class NwBuilder {
+  // eslint-disable-next-line jsdoc/require-jsdoc
   constructor(options) {
     const files = options.glob
       ? options.srcDir
@@ -109,6 +111,7 @@ class NwBuilder {
     }
   }
 
+  // eslint-disable-next-line jsdoc/require-jsdoc
   async build() {
     for (const [name, platform] of Object.entries(this._platforms)) {
       const options = this.migrate(name, platform);
@@ -118,6 +121,7 @@ class NwBuilder {
     }
   }
 
+  // eslint-disable-next-line jsdoc/require-jsdoc
   async run() {
     const name = this.options.currentPlatform;
     const platform = this._platforms[name];
@@ -127,6 +131,7 @@ class NwBuilder {
     await nwbuild(options);
   }
 
+  // eslint-disable-next-line jsdoc/require-jsdoc
   migrate(name, platform) {
     const options = _.cloneDeep(this.options);
 

@@ -4,7 +4,7 @@ import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
 
 import detectCurrentPlatform from "./util/detectCurrentPlatform.js";
-import nwbuilds from "../index.js";
+import nwbuilds from "./nwbuilds.js";
 
 const cli = yargs(hideBin(process.argv))
   .version(false)

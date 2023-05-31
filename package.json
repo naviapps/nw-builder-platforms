@@ -13,16 +13,12 @@
     "email": "haruki.fukui@naviapps.com"
   },
   "license": "MIT",
+  "main": "./src/nwbuilds.js",
   "exports": {
-    "default": "./index.js",
-    "types": "./index.d.ts"
+    "import": "./src/nwbuilds.js",
+    "require": "./dist/nwbuilds.cjs"
   },
   "type": "module",
-  "files": [
-    "./index.js",
-    "./src",
-    "./LICENSE"
-  ],
   "homepage": "https://github.com/naviapps/nw-builder-platforms",
   "repository": {
     "type": "git",
@@ -33,9 +29,11 @@
     "lnt": "eslint --fix ./src",
     "test:manual:get": "cd test/fixture && nwbuilds --mode=get --version=0.75.0",
     "test:manual:dev": "cd test/fixture && nwbuilds --mode=run --version=0.75.0 ./app --no-glob",
-    "test:manual:bld": "cd test/fixture && nwbuilds --mode=build --version=0.75.0 ./app --no-glob"
+    "test:manual:bld": "cd test/fixture && nwbuilds --mode=build --version=0.75.0 ./app --no-glob",
+    "cjs": "esbuild ./src/nwbuilds.js --bundle --minify --legal-comments=inline --platform=node --outfile=./dist/nwbuilds.cjs"
   },
   "devDependencies": {
+    "esbuild": "^0.17.19",
     "eslint": "^8.41.0",
     "eslint-config-tjw-jsdoc": "^1.0.3",
     "eslint-plugin-jsdoc": "41.1.2",

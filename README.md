@@ -9,6 +9,7 @@ Build [NW.js](https://github.com/nwjs/nw.js) applications for Mac, Windows and L
 - [Installation](https://github.com/naviapps/nw-builder-platforms#installation)
 - [Usage](https://github.com/naviapps/nw-builder-platforms#usage)
 - [API Reference](https://github.com/naviapps/nw-builder-platforms#api-reference)
+- [Alternatives](https://github.com/naviapps/nw-builder-platforms#alternatives)
 - [License](https://github.com/naviapps/nw-builder-platforms#license)
 
 ## Installation
@@ -58,6 +59,10 @@ Not supported.
 #### options.arch
 
 Not supported.
+
+## Alternatives
+
+- [nw-builder](https://github.com/nwutils/nw-builder) - Official build NW.js applications for Mac, Windows and Linux.
 
 ## License
 
